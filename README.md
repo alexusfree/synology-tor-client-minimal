@@ -2,7 +2,7 @@
 
 Tor client (Socks proxy ) version 0.2.6.10 - 12MB image - Tor client image qualified for Docker on Synology NAS. This Docker image launch a Tor client with a Socks proxy on port 9150 (SocksPort 0.0.0.0:9150). The proxy is opened for hosts on the local network with 192.168.1.X IP (SocksPolicy accept 192.168.1.0/24).
 
-https://registry.hub.docker.com/u/cmondies/synology-tor-client-minimal/
+https://hub.docker.com/r/4sag/synology-tor-client-minimal/
 
 ### Versions
 
