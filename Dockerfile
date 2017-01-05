@@ -1,14 +1,11 @@
 FROM alpine:latest
-RUN apk update
-RUN apk upgrade
-RUN apk add bash python curl tor
-# Alpine Linux package testing : http://dl-4.alpinelinux.org/alpine/edge/testing/x86_64/
-#RUN apk add tor --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
 
-# install arm https://www.atagar.com/arm/
-#RUN cd /tmp && curl -O https://www.atagar.com/arm/resources/static/arm-1.4.5.0.tar.bz2
-#RUN cd /tmp && tar xjf arm-1.4.5.0.tar.bz2
-#RUN cd /tmp/arm && ./install
+MAINTAINER 4saG <4sag@bk.ru>
+
+ENV TIMEZONE  Asia/Yekaterinburg
+
+RUN apk update && apk upgrade && apk add bash python curl tzdata tor
+RUN cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo "${TIMEZONE}" > /etc/timezone && apk del tzdata
 
 EXPOSE 9150
 
