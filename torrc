@@ -2,11 +2,11 @@
 DataDirectory /var/lib/tor
 
 ## Tor opens a socks proxy on port 9150
-SocksPort 0.0.0.0:9150
+SocksPort 0.0.0.0:9050
 
 ## Entry policies to allow/deny SOCKS requests based on IP address.
 ## SocksPolicy accept 192.168.1.0/24
-SocksPolicy accept 172.17.0.0/16
+SocksPolicy accept 192.168.0.0/16
 SocksPolicy reject *
 
 ## Logs go to stdout at level "notice"
@@ -22,3 +22,13 @@ KeepalivePeriod 60
 NewCircuitPeriod 15                                                                                                                       
 # How many entry guards should we keep at a time?                                                                                           
 NumEntryGuards 8  
+#Определяем подсеть в которую тор будет разрешать имена onion
+#такой диапазон достаточно жирный. Можно смело сокращать.
+VirtualAddrNetworkIPv4 10.0.0.0/8
+#Включаем DNS от луковицы
+AutomapHostsOnResolve 1
+#Определяем порты прозрачного прокси и DNS
+TransPort 0.0.0.0:9040
+DNSPort 0.0.0.0:5353
+#Не пользуемся выходными узлами из этих стран
+ExcludeExitNodes {RU}, {UA}, {BY}, {KZ}, {UZ} 
