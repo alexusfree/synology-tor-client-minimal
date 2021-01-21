@@ -9,7 +9,7 @@ ENV TIMEZONE  Asia/Yekaterinburg
 RUN echo '@edge http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories && \
     #apk update && \
     #apk upgrade && \
-    apk --no-cache add --update curl tzdata tor && \
+    apk --no-cache add --update curl tzdata tor@edge && \
     cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && \
     echo "${TIMEZONE}" > /etc/timezone && \
     apk --no-cache del tzdata && \
