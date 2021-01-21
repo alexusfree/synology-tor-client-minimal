@@ -6,13 +6,13 @@ SocksPort 0.0.0.0:9050
 
 ## Entry policies to allow/deny SOCKS requests based on IP address.
 ## SocksPolicy accept 192.168.1.0/24
-SocksPolicy accept 192.168.0.0/16
-SocksPolicy reject *
+#SocksPolicy accept 192.168.0.0/16
+#SocksPolicy reject *
 
 ## Logs go to stdout at level "notice"
 Log notice stdout
 
-ControlPort 9051
+#ControlPort 9051
 
 # Try for at most NUM seconds when building circuits. If the circuit isn't open in that time, give up on it. (Default: 1 minute.)           
 CircuitBuildTimeout 5                                                                                                                       
@@ -29,6 +29,6 @@ VirtualAddrNetworkIPv4 10.0.0.0/8
 AutomapHostsOnResolve 1
 #Определяем порты прозрачного прокси и DNS
 TransPort 0.0.0.0:9040
-DNSPort 192.168.0.0:5353
+DNSPort 0.0.0.0:5300
 #Не пользуемся выходными узлами из этих стран
 ExcludeExitNodes {RU}, {UA}, {BY}, {KZ}, {UZ} 
